@@ -1,0 +1,15 @@
+{
+  "name": "weather_journal",
+  "author": "Cosmin Cojocar",
+  "description": "Weather Journal App",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
