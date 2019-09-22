@@ -1,0 +1,18 @@
+header {
+  background-color: #4258b6;
+  grid-area: header;
+  padding: 1rem;
+}
+
+header nav {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.wj-header-title {
+  color: #e5eaf8;
+}

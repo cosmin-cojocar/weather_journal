@@ -1,0 +1,12 @@
+a {
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+
+a:hover {
+  color: #e2e8f0;
+}

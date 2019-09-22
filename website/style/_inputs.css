@@ -1,0 +1,38 @@
+/*
+* Style for Placeholder Text
+*/
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #575352;
+  font-family: "Open Sans", sans-serif;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #575352;
+  font-family: "Open Sans", sans-serif;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #575352;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wj-section-entry-date input::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wj-section-entry-date input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wj-section-entry-date input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}

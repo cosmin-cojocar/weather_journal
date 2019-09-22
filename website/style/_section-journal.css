@@ -1,0 +1,61 @@
+.wj-section-journal {
+  align-items: center;
+  background-color: #4258b6;
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  max-width: 768px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.wj-section-journal h2 {
+  border-bottom: 1px solid #fff;
+  margin: 1rem;
+  padding-bottom: 3px;
+}
+
+.wj-section-journal-recent {
+  color: #fff;
+  display: grid;
+  font-family: "Open Sans", sans-serif;
+  grid-template-areas: "date date" "temperature temperature" "feelings feelings";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px 50px 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  padding: 1.5rem;
+}
+
+#wj-journal-log-date {
+  display: flex;
+  flex-direction: column;
+  grid-area: date;
+  justify-content: center;
+}
+
+#wj-journal-log-temp {
+  display: flex;
+  flex-direction: column;
+  grid-area: temperature;
+  justify-content: center;
+}
+
+#wj-journal-log-content {
+  display: flex;
+  flex-direction: column;
+  grid-area: feelings;
+}
+
+@media (min-width: 768px) {
+
+  .wj-section-journal-recent {
+    grid-template-areas: "date temperature" "feelings feelings";
+    grid-template-rows: 70px 1fr;
+  }
+
+}

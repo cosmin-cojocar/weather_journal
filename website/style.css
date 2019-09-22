@@ -1,0 +1,37 @@
+@import "style/_footer.css";
+@import "style/_header.css";
+@import "style/_inputs.css";
+@import "style/_links.css";
+@import "style/_main.css";
+@import "style/_section-entry.css";
+@import "style/_section-journal.css";
+@import "style/_typography.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fffff8;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-columns: 100%;
+  grid-template-rows: 140px 1fr 70px;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/*
+* Reset style for HTML element on active to have no border
+*/
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+}
