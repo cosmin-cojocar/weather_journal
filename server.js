@@ -24,14 +24,21 @@ app.use(express.static("website"));
 // Spin up the server
 const port = 3000;
 app.listen(port, () => {
-    console.log(`Weather Journal app listening on port: ${port}`);
+  // Callback to debug
+  console.log(`Weather Journal app listening on port: ${port}`);
 });
-
-// Callback to debug
 
 // Initialize all route with a callback function
 
-// Callback function to complete GET '/all'
+// Get Route
+app.get("/get-latest", (req, res) => {
+  res.send(JSON.stringify(projectData));
+});
 
 // Post Route
-
+app.post("/save", (req, res) => {
+  projectData.temp = req.body.temp;
+  projectData.date = req.body.date;
+  projectData.content = req.body.content;
+  res.end();
+});
