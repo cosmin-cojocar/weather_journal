@@ -31,21 +31,22 @@
   padding: 1.5rem;
 }
 
-#wj-journal-log-date {
+#date {
   display: flex;
   flex-direction: column;
   grid-area: date;
   justify-content: center;
 }
 
-#wj-journal-log-temp {
+#temp {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   grid-area: temperature;
   justify-content: center;
 }
 
-#wj-journal-log-content {
+#content {
   display: flex;
   flex-direction: column;
   grid-area: feelings;
@@ -56,6 +57,10 @@
   .wj-section-journal-recent {
     grid-template-areas: "date temperature" "feelings feelings";
     grid-template-rows: 70px 1fr;
+  }
+
+  #temp {
+    align-items: flex-end;
   }
 
 }

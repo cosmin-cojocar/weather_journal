@@ -28,5 +28,5 @@ let date = new Date();
 let todayDate = _getMonthAsString(date.getMonth()) + " " + date.getDate() + ", " + date.getFullYear();
 
 // We set today's date in our readonly input field
-const todayDateElement = document.getElementById("date");
+const todayDateElement = document.getElementById("today");
 todayDateElement.value = todayDate;

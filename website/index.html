@@ -27,16 +27,26 @@
     <main role="main">
       <section class="wj-section-entry">
         <div class="wj-section-entry-date">
-          <label for="date">
+          <label for="today">
             Today's date is:
           </label>
-          <input id="date" placeholder="today's date" readonly type="text">
+          <input id="today" placeholder="today's date" readonly type="text">
         </div>
         <div class="wj-section-entry-zip">
           <label for="zip">
             Enter your zip-code:
           </label>
-          <input id="zip" placeholder="zip code" type="text">
+          <input id="zip" placeholder="enter zip code here" type="text">
+        </div>
+        <div class="wj-section-entry-key">
+          <label for="key">
+            Enter your
+            <a href="https://openweathermap.org/api" title="Open Weather Link" target="_blank">
+              OpenWeather
+            </a>
+            &nbsp;API Key:
+          </label>
+          <input id="key" placeholder="enter OWM key here" type="text">
         </div>
         <div class="wj-section-entry-feelings">
           <label for="feelings">
@@ -49,13 +59,13 @@
       <section class="wj-section-journal">
         <h2>Most Recent Entry</h2>
         <div class="wj-section-journal-recent">
-          <div id="wj-journal-log-date">
+          <div id="date">
             Date: 08/08/2019
           </div>
-          <div id="wj-journal-log-temp">
-            Temperature: 80
+          <div id="temp">
+            Temperature: 80°C
           </div>
-          <div id="wj-journal-log-content">
+          <div id="content">
             Feelings: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
             ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
