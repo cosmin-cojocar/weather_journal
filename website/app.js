@@ -96,7 +96,7 @@ const _fetchLatestEntryAndUpdateUI = async () => {
 const _saveEntry = async () => {
   const feelings = feelingsInput.value ? feelingsInput.value.trim() : null;
   const token = tokenInput.value ? tokenInput.value.trim() : null;
-  const zip = zipInput.value ? tokenInput.value.trim() : null;
+  const zip = zipInput.value ? zipInput.value.trim() : null;
 
   // we need a token in order to be able to get some data from weather api
   if (token != null) {
