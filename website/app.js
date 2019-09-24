@@ -1,4 +1,5 @@
 /* Global Variables */
+const apiKey = "12aaad320547c9422bb14a6b1b046297";
 
 // Third party api url & our own server endpoints url's
 const weatherURL = "api.openweathermap.org/data/2.5/weather?";
@@ -55,7 +56,7 @@ todayDateElement.value = todayDate;
  */
 const _fetchWeatherData = async (token, zip = "11230") => {
   // we build our data necessary for doing the fetch operation from weather api
-  const url = `http://${weatherURL}zip=${zip}&APPID=${token}`;
+  const url = `http://${weatherURL}zip=${zip}&appid=${token || apiKey}&units=imperial`;
   const response = await fetch(url);
   return await response.json();
 };
@@ -88,7 +89,7 @@ const _fetchLatestEntryAndUpdateUI = async () => {
     const { content, date, temp } = jsonData;
     contentInput.innerHTML = "Message: " + content;
     dateInput.innerHTML = "Date: " + date;
-    tempInput.innerHTML = "Temperature: " + temp + " (K degrees)";
+    tempInput.innerHTML = "Temperature: " + temp + "°F";
   }
 };
 
@@ -98,50 +99,45 @@ const _saveEntry = async () => {
   const token = tokenInput.value ? tokenInput.value.trim() : null;
   const zip = zipInput.value ? zipInput.value.trim() : null;
 
-  // we need a token in order to be able to get some data from weather api
-  if (token != null) {
-    if (feelings === null) {
-      window.alert("A journal entry about today's feelings is required in order to perform save operation.");
-      return;
-    }
-
-    if (zip === null) {
-      window.alert("Default zip code 11230 will be used as you have not provided a value.");
-    }
-
-    await _fetchWeatherData(token, zip || "11230").then((response) => {
-      if (response != null) {
-        // we check our response to see if we are in the city not found situation
-        const errCode = response.cod;
-        const errMessage = response.message;
-
-        if (errCode === "404" || errMessage === "city not found") {
-          window.alert("City was not found based on the zip value you've entered. Please enter a US zip code.");
-        } else {
-          const timestamp = new Date();
-          const dataEntry = {
-            temp: response.main ? response.main.temp : null,
-            date: `${_getMonthAsString(timestamp.getMonth())} / ${timestamp.getDate()} / ${timestamp.getFullYear()}`,
-            content: feelingsInput.value
-          };
-          _postData(saveURL, dataEntry).then(() => {
-            window.alert("Entry was saved successfully!");
-            _fetchLatestEntryAndUpdateUI().then(() => {
-              window.alert("Latest entry was updated successfully!");
-            });
-          });
-        }
-      } else {
-        window.alert("There was an error!");
-      }
-    }).catch(() => {
-      // we are in situation of a server error so we need to let the user know about it
-      window.alert("Server error! Please try again.");
-      return null;
-    });
-  } else {
-    window.alert("A token is required in order to perform the save operation.");
+  if (feelings === null) {
+    window.alert("A journal entry about today's feelings is required in order to perform save operation.");
+    return;
   }
+
+  if (zip === null) {
+    window.alert("Default zip code 11230 will be used as you have not provided a value.");
+  }
+
+  await _fetchWeatherData(token, zip || "11230").then((response) => {
+    if (response != null) {
+      // we check our response to see if we are in the city not found situation
+      const errCode = response.cod;
+      const errMessage = response.message;
+
+      if (errCode === "404" || errMessage === "city not found") {
+        window.alert("City was not found based on the zip value you've entered. Please enter a US zip code.");
+      } else {
+        const timestamp = new Date();
+        const dataEntry = {
+          temp: response.main ? response.main.temp : null,
+          date: `${_getMonthAsString(timestamp.getMonth())} / ${timestamp.getDate()} / ${timestamp.getFullYear()}`,
+          content: feelingsInput.value
+        };
+        _postData(saveURL, dataEntry).then(() => {
+          window.alert("Entry was saved successfully!");
+          _fetchLatestEntryAndUpdateUI().then(() => {
+            window.alert("Latest entry was updated successfully!");
+          });
+        });
+      }
+    } else {
+      window.alert("There was an error!");
+    }
+  }).catch(() => {
+    // we are in situation of a server error so we need to let the user know about it
+    window.alert("Server error! Please try again.");
+    return null;
+  });
 };
 
 // We set the event listener for the element with the id of "generate"
